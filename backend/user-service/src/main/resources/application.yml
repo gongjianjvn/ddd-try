@@ -1,0 +1,33 @@
+JWT_TOKEN_SECRET_KEY: 1234567890
+REMEMBER_ME_TOKEN_SECRET_KEY: 1234567890
+
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/easy-learn
+    driverClassName: com.mysql.jdbc.Driver
+    username: root
+    password: 123456
+    validation-query: SELECT 1;
+    initial-size: 2
+    sql-script-encoding: UTF-8
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      connection-test-query: SELECT 1 FROM DUAL
+      minimum-idle: 1
+      maximum-pool-size: 5
+      pool-name: yourPoolName
+      auto-commit: false
+
+  jpa:
+    show-sql: true
+    hibernate.ddl-auto: update
+    database-platform: org.hibernate.dialect.MySQLDialect
+
+
+# Enable logging to verify that HikariCP is used, the second entry is specific to HikariCP
+logging:
+  level:
+    org.hibernate.SQL: DEBUG
+    com.zaxxer.hikari.HikariConfig: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE

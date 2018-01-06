@@ -1,0 +1,43 @@
+spring:
+  application:
+    name: user-service
+
+  cloud:
+    config:
+      discovery.enabled: true
+      discovery.serviceId: config-service
+      failFast: false
+
+  # mq for event bus
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+#  data:
+#    mongodb:
+#      host: 10.1.110.24
+#      port: 27017
+#      database: axon
+
+# Discovery Server Access
+eureka:
+  instance:
+    prefer-ip-address: false
+  client:
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://${config.host:localhost}:1111/eureka/
+
+server:
+  port: 8083 #HTTP(Tomcat) port
+
+# enable spring cloud support of Axon
+axon:
+  distributed:
+    enabled: true
+  amqp:
+      exchange: amq.fanout
+
+
+debug: true

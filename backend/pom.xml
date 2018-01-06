@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>1.5.9.RELEASE</version>
+        <!--<groupId>org.springframework.boot</groupId>-->
+        <!--<artifactId>spring-boot-starter-parent</artifactId>-->
+        <!--<version>2.0.0.M6</version>-->
+    </parent>
+
+    <groupId>com.runbo.education</groupId>
+    <artifactId>easy-learn</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>config-service</module>
+        <module>discovery-service</module>
+        <module>gateway-service</module>
+        <module>user-service</module>
+        <module>commons</module>
+        <module>commons-rest</module>
+    </modules>
+
+    <properties>
+        <build-helper-maven-plugin.version>1.8</build-helper-maven-plugin.version>
+        <checkstyle.version>7.6.1</checkstyle.version>
+        <checkstyle.plugin.version>2.17</checkstyle.plugin.version>
+
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <axon.version>3.1.1</axon.version>
+        <HikariCP.version>2.6.1</HikariCP.version>
+        <jjwt.version>0.7.0</jjwt.version>
+        <slf4j.version>1.7.23</slf4j.version>
+        <logback.version>1.2.1</logback.version>
+        <lombok.version>1.16.16</lombok.version>
+        <springframework.version>4.3.13.RELEASE</springframework.version>
+
+        <mapstruct.version>1.2.0.Beta2</mapstruct.version>
+
+        <!-- Maven plugins -->
+
+        <maven-compiler-plugin.version>3.5.1</maven-compiler-plugin.version>
+        <maven-compiler-plugin.source.version>1.8</maven-compiler-plugin.source.version>
+        <maven-compiler-plugin.target.version>1.8</maven-compiler-plugin.target.version>
+        <maven-failsafe-plugin.version>2.19.1</maven-failsafe-plugin.version>
+        <mapstruct.version>1.2.0.Beta2</mapstruct.version>
+        <mysql-connector-java.version>6.0.6</mysql-connector-java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+        <java.version>1.8</java.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.axonframework</groupId>
+            <artifactId>axon-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.axonframework</groupId>
+            <artifactId>axon-spring</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+        </dependency>
+    </dependencies>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>Edgware.RELEASE</version>
+                <type>pom</type>
+                <scope>import</scope>
+                <!--<groupId>org.springframework.cloud</groupId>-->
+                <!--<artifactId>spring-cloud-dependencies</artifactId>-->
+                <!--<version>Finchley.M4</version>-->
+                <!--<type>pom</type>-->
+                <!--<scope>import</scope>-->
+            </dependency>
+
+            <dependency>
+                <groupId>org.axonframework</groupId>
+                <artifactId>axon-core</artifactId>
+                <version>${axon.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.axonframework</groupId>
+                <artifactId>axon-spring</artifactId>
+                <version>${axon.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.axonframework</groupId>
+                <artifactId>axon-spring-boot-autoconfigure</artifactId>
+                <version>${axon.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.axonframework</groupId>
+                <artifactId>axon-amqp</artifactId>
+                <version>${axon.version}</version>
+            </dependency>
+            <!--<dependency>
+                <groupId>org.axonframework</groupId>
+                <artifactId>axon-mongo</artifactId>
+                <version>${axon.version}</version>
+            </dependency>-->
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>${slf4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-classic</artifactId>
+                <version>${logback.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-core</artifactId>
+                <version>${logback.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-access</artifactId>
+                <version>${logback.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>1.2.24</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.jsonwebtoken</groupId>
+                <artifactId>jjwt</artifactId>
+                <version>${jjwt.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mapstruct</groupId>
+                <artifactId>mapstruct-jdk8</artifactId>
+                <version>${mapstruct.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.zaxxer</groupId>
+                <artifactId>HikariCP</artifactId>
+                <version>${HikariCP.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven-compiler-plugin.version}</version>
+                <configuration>
+                    <!-- set verbose to be true if you want lots of uninteresting messages -->
+                    <!-- <verbose>true</verbose> -->
+                    <source>${maven-compiler-plugin.source.version}</source>
+                    <target>${maven-compiler-plugin.target.version}</target>
+
+                    <annotationProcessorPaths>
+                        <!-- Add MapStruct code generator -->
+                        <!-- http://mapstruct.org/documentation/stable/reference/html/#_apache_maven -->
+                        <path>
+                            <groupId>org.mapstruct</groupId>
+                            <artifactId>mapstruct-processor</artifactId>
+                            <version>${mapstruct.version}</version>
+                        </path>
+
+                        <!-- https://stackoverflow.com/a/41761046 -->
+                        <path>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                            <version>${lombok.version}</version>
+                        </path>
+                    </annotationProcessorPaths>
+
+                    <compilerArgs>
+                        <compilerArg>-Amapstruct.suppressGeneratorTimestamp=true</compilerArg>
+                        <compilerArg>-Amapstruct.suppressGeneratorVersionInfoComment=true</compilerArg>
+                    </compilerArgs>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.mapstruct</groupId>
+                        <artifactId>mapstruct-processor</artifactId>
+                        <version>${mapstruct.version}</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-checkstyle-plugin</artifactId>
+                <version>${checkstyle.plugin.version}</version>
+                <configuration>
+                    <configLocation>google_checks.xml</configLocation>
+                    <encoding>UTF-8</encoding>
+                    <consoleOutput>true</consoleOutput>
+                    <failsOnError>true</failsOnError>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>com.puppycrawl.tools</groupId>
+                        <artifactId>checkstyle</artifactId>
+                        <version>${checkstyle.version}</version>
+                    </dependency>
+                </dependencies>
+                <executions>
+                    <execution>
+                        <id>validate</id>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-failsafe-plugin</artifactId>
+                <version>${maven-failsafe-plugin.version}</version>
+                <executions>
+                    <execution>
+                        <id>integration-test</id>
+                        <phase>integration-test</phase>
+                        <goals>
+                            <goal>integration-test</goal>
+                        </goals>
+                        <configuration>
+                            <skipTests>${skip.integration.tests}</skipTests>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>integration-test-verify</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>verify</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+
+        <sourceDirectory>src/main/java</sourceDirectory>
+        <testSourceDirectory>src/test/groovy</testSourceDirectory>
+
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+            </resource>
+        </resources>
+
+        <pluginManagement>
+            <plugins>
+                <!-- Adds src/main/groovy and src/test/groovy as resource folders to the project. -->
+                <!-- See http://keaplogik.blogspot.nl/2013/02/adding-groovy-to-your-maven-class-path.html -->
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>build-helper-maven-plugin</artifactId>
+                    <version>${build-helper-maven-plugin.version}</version>
+                    <executions>
+                        <execution>
+                            <id>add-groovy-sources</id>
+                            <phase>generate-sources</phase>
+                            <goals>
+                                <goal>add-source</goal>
+                            </goals>
+                            <configuration>
+                                <sources>
+                                    <source>src/main/groovy</source>
+                                </sources>
+                            </configuration>
+                        </execution>
+                        <execution>
+                            <id>add-test-groovy-sources</id>
+                            <phase>generate-test-sources</phase>
+                            <goals>
+                                <goal>add-test-source</goal>
+                            </goals>
+                            <configuration>
+                                <sources>
+                                    <source>src/test/groovy</source>
+                                </sources>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
+    <repositories>
+        <repository>
+            <id>spring-milestone</id>
+            <name>Spring Milestone Repository</name>
+            <url>https://repo.spring.io/milestone</url>
+        </repository>
+    </repositories>
+
+</project>
