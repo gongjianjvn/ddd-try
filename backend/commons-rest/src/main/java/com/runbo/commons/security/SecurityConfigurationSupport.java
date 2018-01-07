@@ -22,8 +22,8 @@ import static org.springframework.security.config.http.SessionCreationPolicy.STA
 /**
  * Created by lcsontos on 5/18/17.
  */
-@EnableWebSecurity
-@Configuration
+//@EnableWebSecurity
+//@Configuration
 public class SecurityConfigurationSupport
     extends WebSecurityConfigurerAdapter implements EnvironmentAware {
 

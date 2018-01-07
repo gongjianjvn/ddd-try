@@ -25,7 +25,8 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @EntityScan({
         "com.runbo",
-        "org.axonframework.eventhandling.saga.repository.jpa"
+        "org.axonframework.eventhandling.saga.repository.jpa",
+        "org.axonframework.eventsourcing.eventstore.jpa"
 })
 @ComponentScan("com.runbo")
 public class UserServiceApplication {

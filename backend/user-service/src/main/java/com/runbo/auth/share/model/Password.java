@@ -34,9 +34,9 @@ import javax.persistence.Embeddable;
 @Embeddable
 public class Password implements ValueObject<Password> {
 
-  @Column(name = "password_hash", length = 40)
+  @Column(name = "password_hash", length = 60)
   private String passwordHash;
-  @Column(name = "password_salt", length = 40)
+  @Column(name = "password_salt", length = 60)
   private String passwordSalt;
 
   /**

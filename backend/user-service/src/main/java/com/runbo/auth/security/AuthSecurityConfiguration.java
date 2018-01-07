@@ -11,6 +11,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.web.authentication.*;
 import org.springframework.security.web.authentication.rememberme.AbstractRememberMeServices;
@@ -23,6 +24,7 @@ import static org.springframework.http.HttpMethod.PUT;
 /**
  * Created by lcsontos on 5/18/17.
  */
+@EnableWebSecurity
 @Configuration
 @Order(200)
 public class AuthSecurityConfiguration extends SecurityConfigurationSupport {
